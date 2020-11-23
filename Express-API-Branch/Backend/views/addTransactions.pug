@@ -1,0 +1,11 @@
+doctype html
+html(lang='en')
+h1 Add Transactions
+form(action="/transaction/signup" method="post")
+        input(type="text", name="typeOfTransaction", value="", placeholder="Type of Transaction")
+        br
+        input(type="text", name="transactionAmount", value="", placeholder="Transaction Amount")
+        br
+        input(type="text", name="description", value="", placeholder="Description")
+        br
+        input(type="submit" value="Register")

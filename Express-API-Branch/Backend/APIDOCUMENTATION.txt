@@ -1,0 +1,75 @@
+API DOCUMENTATION
+
+Schema Documentation:
+
+A user object is made of:
+
+Think of this as a JSON object, where nested values are reached with . for example User.account.balance
+const UserSchema = mongoose.Schema( {
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    account: {
+        balance: {
+            type: Number,
+            default: 0,
+            required: true
+        },
+        transactionRules: {
+            overAmount: {
+                type: Number
+            },
+            withinState: {
+                type: [String]
+            },
+            atVendor: {
+                type: [String]
+            }
+        }
+    }
+});
+
+
+UPDATE METHODS
+
+Transaction Rules:
+
+To update the "over amount" which is a rule that is triggered when a transaction is over a certain amount
+
+Request: Get - > users/updateTransactionRuleOverAmount/:id/:amount example: users/updateTransactionRuleOverAmount/abcd4/100
+
+To update the "within state" which is a rule that is triggered when a transaction occurrs in a state listed. A request will push a new state string unto the array
+
+Request: Get - >  users/updateTransactionRuleWithinState/:id/:state example: users/updateTransactionRuleWithinState/abcd4/:Arkansas
+
+To update the "at vendor" which is a rule that is triggered when a transaction occurrs at a particular vendor. A request will push a new vendor string unto the array
+
+Request: Get - > users/updateTransactionRuleatVendor/:id/:vendor
+
+
+GET METHODS
+
+To get all transaction rules for a user
+
+Request: Get - >  users/getTransactionRules/:id
+
+To get the list of vendors for transaction rules
+
+Request: Get - > users/getTransactionRuleatVendor/:id
+
+To get the list of states for transaction rules
+
+Request: Get - >  users/getTransactionRulesWithinState/:id
+
+To get all transactions from a user:
+
+Request: Get - > users/getTransactions/:username
+
+
+

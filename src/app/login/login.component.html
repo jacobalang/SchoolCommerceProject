@@ -1,0 +1,22 @@
+<div class="col-md-12 col-md-offset-12" id="login">
+  <section id="inner-wrapper" class="login">
+    <article>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+            <input type="text" class="form-control" placeholder="Username" formControlName="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+            <input type="password" class="form-control" placeholder="Password" formControlName="password">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success btn-block" [disabled]="!loginForm.valid">Login</button>
+      </form>
+    </article>
+  </section>
+</div>
+

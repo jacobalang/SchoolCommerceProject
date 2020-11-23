@@ -1,0 +1,59 @@
+<div><h2>Make Transaction</h2></div>
+<div class="col-md-12 col-md-offset-12" id="makeTransaction">
+    <section id="inner-wrapper" class="makeTransaction">
+      <article>
+        <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-vendor"> </i></span>
+              <input type="text" id="vendor" class="form-control" placeholder="Vendor" formControlName="vendor">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-amount"> </i></span>
+              <input type="number" class="form-control" placeholder="0" formControlName="transactionAmount">
+            </div>
+            <div *ngIf="transactionAmount.errors?.min">
+                Value must be positive.
+             </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-description"> </i></span>
+              <input type="text" class="form-control" placeholder="Description" formControlName="description">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-state"> </i></span>
+                <select class="custom-select" id="state" formControlName="state">
+                <option>Kansas</option>
+                <option>Nebraska</option>
+                <option>Texas</option>
+                <option>Arkansas</option>
+                <option>Florida</option>
+                <option>California</option>
+                <option>Alaska</option>
+                <option>Montana</option>
+             </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="type">Withdrawal/Deposit</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-type"> </i></span>
+              <select class="custom-select" id="type"formControlName="typeOfTransaction">
+                <option>Deposit</option>
+                <option>Withdrawal</option>
+             </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!transactionForm.valid">Make Transaction</button>
+        </form>
+      </article>
+    </section>
+  </div>
+  

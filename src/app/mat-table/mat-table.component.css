@@ -1,0 +1,28 @@
+
+table {
+  width: 100%;
+}
+
+input {
+width: 700px;
+border-radius: 10px;
+border: 1px solid;
+height: 20px;
+padding: 20px;
+font-size: 15px;
+margin: 20px;
+}
+
+pagination {
+  width: 700px;
+  border-radius: 10px;
+  border: 1px solid;
+  height: 20px;
+  padding: 20px;
+  font-size: 15px;
+  margin: 20px;
+}
+
+mat-elevation-z8 {
+  width: 700px;
+}

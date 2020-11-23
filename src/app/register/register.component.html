@@ -1,0 +1,34 @@
+<div class="col-md-12 col-md-offset-12" id="register">
+
+    <section id="inner-wrapper" class="register">
+      <article>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+              <input type="text" class="form-control" placeholder="Username" formControlName="username">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <label>
+                Password must contain at least: <br>
+                8 Characters <br>
+                1 Special Character <br>
+                1 Number <br>
+                1 Capital Letter <br>
+            </label>
+            <div *ngIf="password.errors?.pattern">
+               Password not valid.
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!registerForm.valid">Register</button>
+        </form>
+      </article>
+    </section>
+  </div>

@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+table(style='width:50%', border='1')
+  tr
+    th Account Number
+    th Balance
+    th Deposit/Withdrawal
+    th Amount
+    th Description
+  each val in mydata
+   tr
+    td=val.accountNumber
+    td=val.balance
+    td=val.typeOfTransaction
+    td=val.transactionAmount
+    td=val.description
+
+
+form(action="/transactions/newTransaction" method="post")
+        input(type="text", name="typeOfTransaction", value="", placeholder="Type of Transaction")
+        br
+        input(type="text", name="transactionAmount", value="", placeholder="Transaction Amount")
+        br
+        input(type="text", name="description", value="", placeholder="Description")
+        br
+        input(type="submit" value="Register")
+
